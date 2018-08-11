@@ -1,5 +1,6 @@
-package model
+package structure
 
+//Audiance is the constraints of the ad audiance
 type Audiance struct {
 	Languages []string `bson:"languages" json:"languages"`
 	Genders   []string `bson:"genders" json:"genders"`

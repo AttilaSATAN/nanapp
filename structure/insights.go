@@ -1,5 +1,6 @@
-package model
+package structure
 
+// Insights is holds general metrics for the a single platform of a campaign.
 type Insights struct {
 	Impressions      int32   `json:"impressions" bson:"impressions"`
 	Clicks           int32   `json:"clicks" bson:"clicks"`

@@ -1,7 +1,8 @@
-package model
+package structure
 
 import "github.com/mongodb/mongo-go-driver/bson/objectid"
 
+// Campaign is the entry point to structure data hierarchy.
 type Campaign struct {
 	ID          *objectid.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
 	UID         int32              `json:"id" bson:"uid"`

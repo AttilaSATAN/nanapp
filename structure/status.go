@@ -1,4 +1,4 @@
-package model
+package structure
 
 // Status is the current status representation of a campaign or a single platform of a campaign.
 // There is tree possible statuses. So status implemented on top of a custom Enum implementation with lookup tables.
