@@ -43,9 +43,4 @@ func TestAPIIntegration(t *testing.T) {
 	e.GET("/api/campaign").Expect().Status(httptest.StatusOK).
 		Body().Equal(string(campaignJSON))
 
-	// e.GET("/hello").Expect().Status(httptest.StatusOK).
-	// 	JSON().Object().Value("message").Equal("Hello Iris!")
-
-	// e.GET("/custom_path").Expect().Status(httptest.StatusOK).
-	// 	Body().Equal("hello from the custom handler without following the naming guide")
 }
