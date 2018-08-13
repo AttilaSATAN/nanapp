@@ -36,7 +36,7 @@ func (p *Platform) UnmarshalJSON(b []byte) (err error) {
 		MillisecondsEndDate   int64          `json:"end_date"`
 		EndDate               time.Time      `bson:"endDate"`
 		Audiance              Audiance       `json:"target_audiance" bson:"targetAudiance"` //typo?
-		Creatives             Creatives      `json:"creatives" bson:"Creatives"`
+		Creatives             Creatives      `json:"creatives" bson:"creatives"`
 		Insights              Insights       `json:"insights" bson:"insights"`
 	}{}
 
@@ -63,11 +63,33 @@ func (p *Platform) UnmarshalJSON(b []byte) (err error) {
 }
 
 // MarshalJSON is json.Marshaler implementation.
-func (p *Platform) MarshalJSON() (b []byte, err error) {
+func (p *Platform) MarshalJSON() ([]byte, error) {
+	p2 := struct {
+		Status                CampaignStatus `json:"status" bson:"status"`
+		TotalBudget           int            `json:"total_budget" bson:"totalBudget"`
+		RemainingBudget       int            `json:"remaining_budget" bson:"remainingBudget"`
+		MillisecondsStartDate int64          `json:"start_date"`
+		StartDate             time.Time      `bson:"startDate"`
+		MillisecondsEndDate   int64          `json:"end_date"`
+		EndDate               time.Time      `bson:"endDate"`
+		Audiance              Audiance       `json:"target_audiance" bson:"targetAudiance"` //typo?
+		Creatives             Creatives      `json:"creatives" bson:"creatives"`
+		Insights              Insights       `json:"insights" bson:"insights"`
+	}{}
 
-	p.MillisecondsStartDate = p.StartDate.Unix() * int64(time.Second/time.Millisecond)
-	p.MillisecondsEndDate = p.EndDate.Unix() * int64(time.Second/time.Millisecond)
+	p2.Status = p.Status
+	p2.TotalBudget = p.TotalBudget
+	p2.RemainingBudget = p.RemainingBudget
+	p2.MillisecondsStartDate = p.MillisecondsStartDate
+	p2.StartDate = p.StartDate
+	p2.MillisecondsEndDate = p.MillisecondsEndDate
+	p2.EndDate = p.EndDate
+	p2.Audiance = p.Audiance
+	p2.Creatives = p.Creatives
+	p2.Insights = p.Insights
+	p2.MillisecondsStartDate = p.StartDate.Unix() * int64(time.Second/time.Millisecond)
+	p2.MillisecondsEndDate = p.EndDate.Unix() * int64(time.Second/time.Millisecond)
 
-	b, err = json.Marshal(p)
-	return
+	return json.Marshal(p2)
+
 }
