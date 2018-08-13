@@ -11,6 +11,7 @@ var (
 	campaignApp *Campaign
 )
 
+//New creates a new iris application
 func New(c *mongo.Collection) *iris.Application {
 	collection = c
 	campaignApp = &Campaign{collection}
@@ -27,7 +28,7 @@ func initApp() *iris.Application {
 
 		ctx.View("index.html")
 	})
-	mvc.Configure(app.Party("/api")).Handle(campaignApp)
+	mvc.Configure(app.Party("/api/campaign")).Handle(campaignApp)
 
 	app.Run(iris.Addr(":8080"))
 

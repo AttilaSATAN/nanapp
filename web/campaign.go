@@ -9,11 +9,13 @@ import (
 	"github.com/mongodb/mongo-go-driver/mongo"
 )
 
+//Campaign holds MVC components of Campaign resource
 type Campaign struct {
 	Collection *mongo.Collection
 }
 
-func (s Campaign) GetCampaign() mvc.Result {
+//GetCampaign is controller for endpoint: `/api/campaign`
+func (s Campaign) Get() mvc.Result {
 
 	c, err := s.Collection.Find(context.Background(), nil)
 	if err != nil {
