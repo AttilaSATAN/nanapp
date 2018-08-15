@@ -1,0 +1,33 @@
+
+.Navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1071;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  background-color: #1bd3b4;
+  color: #fff;
+}
+.Navbar, .Navbar-brand, .Navbar-button {
+  min-height: 4rem;
+  line-height: 4rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.Navbar-brand{
+  font-size: larger;
+  text-shadow: 1px 1px 2px #1a937e;
+}
+.Navbar-button {
+  text-decoration: none;
+  color: #f0f0f0;
+}
+.Navbar-button:hover{
+  color: #fff;
+  background-color: #1fddbd;
+}

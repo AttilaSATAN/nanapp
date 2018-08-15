@@ -1,0 +1,12 @@
+.Platform {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+}
+.Platform-data{
+  min-width: 50%;
+}
+.Platform-image > img {
+  display: block;
+  max-width: 100%;
+}

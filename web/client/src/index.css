@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+}
+a, a:focus, a:visited {
+  color:inherit;
+}
+footer {
+  margin: .5rem auto 0;
+  padding: 0 .5rem;
+  min-height: 4rem;
+  border-top: 4px solid #b8c7c6;
+  background-color: #b1bebd;
+  color:#161a19;
+}
+footer a {
+  line-height: 4rem;
+}

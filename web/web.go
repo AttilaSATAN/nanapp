@@ -22,12 +22,16 @@ func New(c *mongo.Collection) *iris.Application {
 func initApp() *iris.Application {
 
 	app := iris.New()
-	app.RegisterView(iris.HTML("./web/client", ".html"))
+	// app.RegisterView(iris.HTML("./web/client/build", ".html"))
 
-	app.Get("/", func(ctx iris.Context) {
+	// app.Get("/", func(ctx iris.Context) {
 
-		ctx.View("index.html")
-	})
+	// 	ctx.View("index.html")
+	// })
+	assetHandler := app.StaticHandler("./web/client/build", false, false)
+	// as an alternative of SPA you can take a look at the /routing/dynamic-path/root-wildcard
+	// example too
+	app.SPA(assetHandler)
 	mvc.Configure(app.Party("/api/campaign")).Handle(campaignApp)
 
 	app.Run(iris.Addr(":8080"))
