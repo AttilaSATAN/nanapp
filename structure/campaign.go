@@ -13,7 +13,7 @@ type Campaign struct {
 	Name        string             `json:"name" bson:"name"`
 	Goal        string             `json:"goal" bson:"goal"`
 	TotalBudget int                `json:"total_budget" bson:"total_budget"`
-	Status      CampaignStatus     `json:"status" bson:"status"`
+	Status      string             `json:"status" bson:"status"`
 	Platforms   struct {
 		Facebook  *Platform `json:"facebook" bson:"facebook"`
 		Google    *Platform `json:"google" bson:"google"`
@@ -28,12 +28,12 @@ type Campaign struct {
 //MarshalJSON is Marshaller implementation
 func (c *Campaign) MarshalJSON() ([]byte, error) {
 	c2 := &struct {
-		ID          string         `json:"_id,omitempty" bson:"_id,omitempty"`
-		UID         int32          `json:"id" bson:"uid"`
-		Name        string         `json:"name" bson:"name"`
-		Goal        string         `json:"goal" bson:"goal"`
-		TotalBudget int            `json:"total_budget" bson:"total_budget"`
-		Status      CampaignStatus `json:"status" bson:"status"`
+		ID          string `json:"_id,omitempty" bson:"_id,omitempty"`
+		UID         int32  `json:"id" bson:"uid"`
+		Name        string `json:"name" bson:"name"`
+		Goal        string `json:"goal" bson:"goal"`
+		TotalBudget int    `json:"total_budget" bson:"total_budget"`
+		Status      string `json:"status" bson:"status"`
 		Platforms   struct {
 			Facebook  *Platform `json:"facebook" bson:"facebook"`
 			Google    *Platform `json:"google" bson:"google"`
