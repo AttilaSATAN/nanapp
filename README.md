@@ -35,7 +35,8 @@ As I aforementioned my decisions were always sided with what I'm not used to. So
 ## What could be added?
 
 * Q/A testing is missing.
-* JSON API and routes would be enchanted. Maybe filtering, more query options.
+* JSON API and routes would be enchanted. Maybe filtering, more query options exc.
 * SCSS support.
 * JEST for unit testing for front-end.
 * Better git messages.
+* More options for configuration like service port, 
