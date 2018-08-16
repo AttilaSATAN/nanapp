@@ -58,6 +58,8 @@ go run cmd/nanapp/main.go data.json
 
 As a multi purposed application, it could be used as a library or a stand alone command line application. Also it has a docker composer file added for running it as a container.
 
+I could slice up the json to small pieces but I prefered not for creating more time for learning. 
+
 The file structure and descriptions are below;
 
 ```
