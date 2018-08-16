@@ -1,20 +1,21 @@
 version: "2"
 services:
-  mongodb:
-    container_name: mongodb
+  mongo:
     image: mongo
+    expose:
+     - "27017"
     volumes:
       - ./data/db:/data/db
-    ports:
-      - "27017:27017"
     command: mongod --smallfiles
   nanapp:
     container_name: nanapp
     restart: always
     build: .
+    environment:
+      - DB_CONNECTION_STRING=mongodb://mongo:27017
     ports:
       - "8080:8080"
     links:
-      - mongodb
+      - mongo:mongo
     depends_on:
-      - mongodb
+      - mongo
