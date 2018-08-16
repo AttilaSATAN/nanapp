@@ -7,10 +7,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"log"
 	"strings"
-
-	"github.com/mongodb/mongo-go-driver/bson"
 )
 
 const (
@@ -68,21 +65,10 @@ func (cs *CampaignStatus) UnmarshalJSON(b []byte) error {
 	s := string(b)
 
 	index, t := lookupCampaignStatuses[strings.Replace(s, "\"", "", -1)]
-	tr(*cs)
 	if t { // If JSON value does not exists in lookup table out of range error must be thrown
 		*cs = CampaignStatus(index)
 	} else {
 		return errors.New("value is out of the range of the CampaignStatus")
 	}
 	return nil
-}
-
-func tr(v interface{}) {
-
-	switch v.(type) {
-	case bson.Unmarshaler:
-		log.Println("YEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
-	default:
-		log.Println("FFFFUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCCCCCCCCCCCCCCCCCCCCCCCCCCCKKKKKKKKKKKKKKKK")
-	}
 }

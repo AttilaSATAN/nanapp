@@ -1,0 +1,20 @@
+version: "2"
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "27017:27017"
+    command: mongod --smallfiles
+  nanapp:
+    container_name: nanapp
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    links:
+      - mongodb
+    depends_on:
+      - mongodb

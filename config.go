@@ -9,7 +9,7 @@ import (
 )
 
 type nanoConfig struct {
-	MongoDBConnectionString string `env:"DB_CONNECTION_STRING" envDefault:"mongodb://localhost:27017"`
+	MongoDBConnectionString string `env:"DB_CONNECTION_STRING" envDefault:"mongodb:27017"`
 }
 
 func isExistsDotEnv() bool {
