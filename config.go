@@ -1,7 +1,6 @@
 package nanapp
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/caarlos0/env"
@@ -9,7 +8,7 @@ import (
 )
 
 type nanoConfig struct {
-	MongoDBConnectionString string `env:"DB_CONNECTION_STRING" envDefault:"mongodb:27017"`
+	MongoDBConnectionString string `env:"DB_CONNECTION_STRING" envDefault:"mongodb://127.0.0.1:27017"`
 }
 
 func isExistsDotEnv() bool {
@@ -29,7 +28,6 @@ func initConfig() (*nanoConfig, error) {
 		}
 	}
 
-	fmt.Println("ENV", os.Getenv("DB_CONNECTION_STRING"))
 	conf := nanoConfig{}
 	env.Parse(&conf)
 	return &conf, nil
